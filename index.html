@@ -3,22 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Техномарт</title>
+    <link href="https://fonts.googleapis.com/css?family=Cuprum:400,400i,700|PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header class="main-header">
       <div class="header-top">
         <div class="container">
-          <a class="logo">ТЕХНОМАРТ</a>
+          <a class="logo">Техномарт</a>
           <form class="form-search" action="https://echo.htmlacademy.ru" method="post">
-            <label class="visually-hidden" for="search"><span class="visually-hidden">Поиск по сайту</span></label>
-            <input class="search" type="search" id="search" name="search" placeholder="Поиск:">
+            <p class="search-site">
+              <input class="search" type="search" id="search" name="search" placeholder="Поиск:">
+              <label class="search-label" for="search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17"><path fill="#000000" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/></svg>
+                <span class="visually-hidden">Поиск по сайту </span>
+              </label>
+            </p>
           </form>
           <ul class="product-checkout">
             <li class="marker">
-              <a class="marker-link" href="#">Закладки: <span>0</span></a>
+              <a class="marker-link" href="#">
+                <svg class="icon marcer-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="16"><path fill="#000000" d="M14 15c0 .55-.368.741-.818.426l-5.363-3.765c-.45-.315-1.187-.315-1.637 0L.818 15.426C.368 15.741 0 15.55 0 15V1c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v14z"/></svg>
+                Закладки: <span>0</span></a>
             </li>
             <li class="basket">
-              <a class="basket-link" href="#">Корзина: <span>0</span></a>
+              <a class="basket-link" href="#">
+                <svg class="icon basket-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15"><circle fill="#000000" cx="4.5" cy="13.5" r="1.5"/><circle fill="#000000" cx="12.5" cy="13.5" r="1.5"/><path fill="#000000" d="M15 2H4.07l-.422-2H0v2h2.031l1.985 9H15V9H9.441L15 6.951z"/></svg>
+                Корзина: <span>0</span></a>
             </li>
             <li class="checkout">
               <a class="checkout-link" href="#">Оформить заказ</a>
@@ -28,7 +40,7 @@
       </div>
       <div class="container">
         <div class="header-middle">
-          <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
+          <h1 class="header-title">Интернет-магазин строительных материалов <br>и инструментов для ремонта</h1>
           <div class="contacts">
             <p class="telefon">+7 (812) 555-05-55</p>
             <p class="address">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
