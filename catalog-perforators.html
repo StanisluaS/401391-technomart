@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body class="inner">
     <header class="main-header">
       <div class="header-top">
         <div class="container">
@@ -50,7 +50,7 @@
             <li class="user-name">
               <a class="name-link" href="#">
                 <svg class="name-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="18"><path fill="#c5c5c5" d="M17.881 14.166c-2.144-.735-4.256-1.666-5.207-2.39-.657-.501-.77-1.618-.517-2.415 1.118-.903 1.864-2.477 1.864-4.278C14.021 2.276 12.221 0 10 0S5.979 2.276 5.979 5.083c0 1.801.746 3.374 1.863 4.277.253.798.141 1.915-.517 2.416-.95.724-3.063 1.654-5.207 2.39S0 18 0 18h20s.025-3.099-2.119-3.834z"/></svg>
-                Равшан Джамшутович</a>
+                <span class="name-text">Равшан Джамшутович</span></a>
             </li>
             <li class="user-exit">
               <a class="exit-link" href="#">
@@ -95,7 +95,9 @@
     <main>
       <div class="container">
         <ul class="breadcrumbs-list">
-          <li class="breadcrumbs-item"><a href="index.html"><span class="visually-hidden">Главная</span></a></li>
+          <li class="breadcrumbs-item"><a href="index.html">
+            <svg class="icon-home" xmlns="http://www.w3.org/2000/svg" width="15" height="12"><g fill="#C1C6CE"><path d="M3 8v4h4V8h2v4h4V8L8 3.516z"/><path d="M14.831 6.365L13 4.751V0h-2v2.987L8.332.635c-.02-.017-.043-.023-.064-.037a.465.465 0 0 0-.08-.047.551.551 0 0 0-.095-.024C8.062.521 8.032.515 8 .515c-.031 0-.061.006-.092.012a.46.46 0 0 0-.095.025c-.028.011-.053.029-.08.046-.021.014-.045.02-.064.037l-6.498 5.73a.501.501 0 0 0 .33.875.497.497 0 0 0 .331-.125L8 1.677l6.169 5.438a.501.501 0 0 0 .662-.75z"/></g></svg>
+            <span class="visually-hidden">Главная</span></a></li>
           <li class="breadcrumbs-item"><a href="#">Каталог</a></li>
           <li class="breadcrumbs-item"><a href="#">Инструмент</a></li>
           <li class="breadcrumbs-item breadcrumbs-active">Перфораторы</li>
@@ -107,16 +109,16 @@
             <form class="filter" action="https://echo.htmlacademy.ru" method="post">
               <div class="filter-item">
                 <h3 class="filter-title">Цена:</h3>
-                <div class="min-max">
-                  <button class="min" type="button"><span class="text">от</span></button>
+                <p class="min-max">
+                  <button class="min" type="button"><span class="visually-hidden">левый ползунок</span></button>
                   <span class="line-green"></span>
-                  <button class="max" type="button"><span class="text">до</span></button>
-                  <p class="input-field">
-                    <label><span class="visually-hidden">от </span><input type="text" name="min" value="0"></label>
-                    -
-                    <label><span class="visually-hidden">до </span><input type="text" name="max" value="30000"></label>
-                  </p>
-                </div>
+                  <button class="max" type="button"><span class="visually-hidden">правый ползунок</span></button>
+                </p>
+                <p class="input-field">
+                  <label><span class="visually-hidden">от </span><input type="text" name="min" value="0" pattern="[0-9]{0,100}"></label>
+                  <span></span>
+                  <label><span class="visually-hidden">до </span><input type="text" name="max" value="30000" pattern="[0-9]{0,100}"></label>
+                </p>
               </div>
               <div class="filter-item">
                 <h3 class="filter-title">Производители:</h3>
@@ -144,7 +146,7 @@
                 </ul>
               </div>
               <div class="filter-item">
-                <h4 class="filter-title">Питание:</h4>
+                <h3 class="filter-title">Питание:</h3>
                 <ul class="power-choice">
                   <li class="power-item">
                     <input class="power-input visually-hidden" id="accumulator" type="radio" name="power" value="accumulator" checked>
@@ -156,7 +158,7 @@
                   </li>
                 </ul>
               </div>
-              <button class="btn btn-filter" type="submit">Показать</button>
+              <button class="btn-filter" type="submit">Показать</button>
             </form>
           </section>
           <div class="left-column">
