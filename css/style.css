@@ -11,6 +11,19 @@ body {
   background-color: #ffffff;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+
+  display: none;
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .container {
   width: 940px;
   margin: 0 auto;
@@ -732,6 +745,8 @@ img {
   background-color: transparent;
   border: none;
   box-shadow: inset -4px -4px 0 0 #ffffff;
+
+  cursor: pointer;
 }
 
 .slider-back {
@@ -2469,6 +2484,57 @@ img {
   background-color: #ffffff;
 }
 
+/* @-webkit-keyframes emergence {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+
+@-webkit-keyframes emergence {
+  0% {
+    transform-origin: 50% -110px;
+    transform: scale(0);
+  }
+  100% {
+    transform-origin: 50% -110px;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
 .open-popup {
   display: block;
+
+  animation: emergence 0.6s;
+}
+
+.modal-error {
+  animation: shake 0.6s;
 }
