@@ -11,17 +11,18 @@
   var inputs = inputsField.querySelectorAll('input');
   var inputMin = inputsField.querySelector('.input-min');
   var inputMax = inputsField.querySelector('.input-max');
-  var INPUT_MAX_VALUE = 30000;
-  var INPUT_MAX_LEFT = 140;
-  var factor = INPUT_MAX_VALUE / INPUT_MAX_LEFT;
+  var inputMaxValue = +inputMax.defaultValue;
+  var inputMinValue = +inputMin.defaultValue;
+  var btnMaxLeft = btnMax.offsetLeft;
+  var factor = inputMaxValue / btnMaxLeft;
 
   var resetInputValue = function (element) {
-	  switch (element.name) {
-		case 'min':
-		  element.value = 0;
+	  switch (element.className) {
+		case 'input-min':
+		  element.value = inputMinValue;
 		  break;
-		case 'max':
-		  element.value = INPUT_MAX_VALUE;
+		case 'input-max':
+		  element.value = inputMaxValue;
 		  break;
 	  }
 	};
@@ -29,22 +30,11 @@
 	resetInputValue(inputMin);
 	resetInputValue(inputMax);
 
-//запрет на ввод не числовых значений в input
-  var checksInput = function (evt) {
-    var target = evt.target;
-    if((evt.keyCode < 48 || evt.keyCode > 57) && (evt.keyCode < 96 || evt.keyCode > 105)) {
-      if(evt.keyCode !== 8 && evt.keyCode !== 9 && evt.keyCode !== 27 && evt.keyCode !== 37 && evt.keyCode !== 39 && evt.keyCode !== 46) {
-        evt.preventDefault();
-        return;
-      }
-    }
-  };
-
 //перемещение ползунка при изминении значения в input
 var onMoveSliders = function (evt) {
   var target = evt.target;
-  //проверка на вставляемые значения в input
-  if (target.validity.patternMismatch) {
+  //проверка на вставляемые значения в input и запрет на пустой input
+  if (target.validity.patternMismatch || !target.value) {
     switch (target.className) {
       case 'input-min':
         target.value = Math.round(btnMin.offsetLeft * factor);
@@ -56,8 +46,8 @@ var onMoveSliders = function (evt) {
   }
   switch (target.className) {
     case 'input-min':
-      if (target.value < 0) {
-        target.value = 0;
+      if (target.value < inputMinValue) {
+        target.value = inputMinValue;
       } else if (+target.value > +inputMax.value) {
         target.value = inputMax.value;
       }
@@ -110,8 +100,8 @@ var onMoveSliders = function (evt) {
         case 'min':
           btnMin.style.zIndex = 10;
 
-          if(result < 0) {
-            result = 0;
+          if(result < inputMinValue) {
+            result = inputMinValue;
           } else if (result > btnMax.offsetLeft) {
             result = btnMax.offsetLeft;
           }
@@ -140,6 +130,27 @@ var onMoveSliders = function (evt) {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   };
+
+  //запрет на ввод не числовых значений в input
+    var checksInput = function (evt) {
+      var target = evt.target;
+      if((evt.keyCode < 48 || evt.keyCode > 57) && (evt.keyCode < 96 || evt.keyCode > 105)) {
+        if(evt.keyCode !== 8 && evt.keyCode !== 9 && evt.keyCode !== 13 && evt.keyCode !== 27 && evt.keyCode !== 37 && evt.keyCode !== 39 && evt.keyCode !== 46) {
+          evt.preventDefault();
+          return;
+        } else if (evt.keyCode === 13) {
+          evt.preventDefault();
+          onMoveSliders(evt);
+          if(target.classList.contains('input-min')) {
+            inputMax.focus();
+          }
+          target.blur();
+        } else if (evt.keyCode === 27) {
+          evt.preventDefault();
+          target.blur();
+        }
+      }
+    };
 
   [].forEach.call(inputs, function(element) {
     element.addEventListener('keydown', checksInput);
