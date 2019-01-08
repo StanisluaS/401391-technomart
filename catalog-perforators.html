@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cuprum:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body class="inner">
     <header class="main-header">
@@ -116,9 +116,15 @@
                   <button class="max" type="button"><span class="visually-hidden">правый ползунок</span></button>
                 </p>
                 <p class="input-field">
-                  <label><span class="visually-hidden">от </span><input type="text" name="min" value="0" pattern="[0-9]{0,100}"></label>
+                  <label>
+                    <span class="visually-hidden">от </span>
+                    <input class="input-min" type="text" name="min" value="0" pattern="[0-9]{0,100}">
+                  </label>
                   <span></span>
-                  <label><span class="visually-hidden">до </span><input type="text" name="max" value="30000" pattern="[0-9]{0,100}"></label>
+                  <label>
+                    <span class="visually-hidden">до </span>
+                    <input class="input-max" type="text" name="max" value="30000" pattern="[0-9]{0,100}">
+                  </label>
                 </p>
               </div>
               <div class="filter-item">
@@ -421,6 +427,7 @@
       <button class="btn-close-order close-popup" type="button"><span class="visually-hidden">Закрыть</span></button>
     </div>
     <div class="overlay"></div>
-    <script src="./js/script.js"></script>
+    <script src="./js/script.min.js"></script>
+    <script src="./js/movementSlider.min.js"></script>
   </body>
 </html>
